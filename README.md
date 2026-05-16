@@ -1,0 +1,19 @@
+# Nuriek
+
+Editorial web foundation for Nuriek.
+
+```text
+nuriek/
+├── AGENTS.md
+├── README.md
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── editorial/
+│   │   │   ├── layout/
+│   │   │   └── sections/
+│   │   ├── lib/
+│   │   └── styles/
+│   └── ...
+└── server/
+```

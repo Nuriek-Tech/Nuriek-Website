@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400;500;600&family=Inter:wght@400;500;600&family=Kalam:wght@300;400;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color: #111111;
+    background: #f7f7f4;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-synthesis: none;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: #f7f7f4;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .collage-hand-title,
+    .collage-hand-sub,
+    .collage-hand-list > li {
+      transform: none;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.24em];
+  }
+
+  .handwritten {
+    font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
+    letter-spacing: 0;
+  }
+
+  .founder-signature {
+    font-family: "Allura", "Segoe Script", "Bradley Hand", cursive;
+    font-size: clamp(2.5rem, 6vw, 3.35rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: #1a1712;
+  }
+
+  .journal-note-text {
+    font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+    font-size: clamp(1.42rem, 2.55vw, 1.92rem);
+    font-weight: 400;
+    line-height: 1.62;
+    letter-spacing: 0.01em;
+    color: #2b2925;
+  }
+
+  /** Neat print-like handwriting — “What we learned” collage */
+  .collage-board {
+    position: relative;
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255, 252, 247, 0.5), transparent 48%),
+      radial-gradient(circle at 88% 78%, rgba(17, 17, 17, 0.04), transparent 38%);
+    background-size: 100% 100%, 100% 100%;
+  }
+
+  .collage-script {
+    font-family: "Kalam", "Bradley Hand", cursive;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1e1e1c;
+    text-shadow:
+      0.6px 0 0 rgba(17, 17, 17, 0.04),
+      -0.4px 0.5px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  /** Looser “title” handwriting inside collage scraps */
+  .collage-hand-title {
+    font-family: "Caveat", "Kalam", cursive;
+    font-weight: 600;
+    font-size: clamp(1.42rem, 3.45vw, 1.82rem);
+    line-height: 1.06;
+    letter-spacing: 0.02em;
+    color: #1a1816;
+    transform: rotate(-0.85deg);
+  }
+
+  .collage-hand-sub {
+    font-family: "Caveat", "Kalam", cursive;
+    font-weight: 500;
+    font-size: clamp(0.98rem, 2.5vw, 1.08rem);
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    color: #3a3935;
+    transform: rotate(0.4deg);
+  }
+
+  /** Sketched scraps — subtly uneven corners (pencil-cut paper) */
+  .collage-slip-sketch {
+    border-radius: 3px 6px 2px 5px / 4px 3px 5px 4px;
+  }
+
+  .collage-script-loose {
+    font-family: "Caveat", "Kalam", cursive;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #1e1e1c;
+    text-shadow:
+      0.5px 0 0 rgba(17, 17, 17, 0.045),
+      -0.3px 0.4px 0 rgba(255, 254, 250, 0.4);
+  }
+
+  /** List lines that feel like scratched-out notebook rows */
+  .collage-hand-list > li {
+    position: relative;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+    transform-origin: left center;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .collage-hand-list > li:not(:last-child) {
+    margin-bottom: 0.32rem;
+  }
+
+  .collage-hand-list > li:nth-child(odd) {
+    transform: rotate(-0.25deg);
+  }
+
+  .collage-hand-list > li:nth-child(even) {
+    transform: rotate(0.3deg);
+  }
+
+  .collage-graph-paper {
+    background-color: rgba(251, 250, 248, 0.93);
+    background-image:
+      linear-gradient(rgba(17, 17, 17, 0.062) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 17, 17, 0.052) 1px, transparent 1px),
+      radial-gradient(
+        ellipse 120% 80% at 22% 18%,
+        rgba(17, 17, 17, 0.016),
+        transparent 48%
+      );
+    background-size:
+      10.35px 11.05px,
+      10.9px 10.65px,
+      100% 100%;
+  }
+
+  .collage-binding {
+    padding-left: 1.85rem;
+    border-left: 1px dashed rgba(17, 17, 17, 0.2);
+    background-image: radial-gradient(circle, rgba(17, 17, 17, 0.22) 0 2px, transparent 2.8px);
+    background-size: 1px 16px;
+    background-repeat: repeat-y;
+    background-position: 0.38rem 0;
+  }
+
+  .paper-texture {
+    background-image:
+      linear-gradient(rgba(17, 17, 17, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 17, 17, 0.018) 1px, transparent 1px),
+      radial-gradient(circle at 25% 20%, rgba(17, 17, 17, 0.035), transparent 28rem);
+    background-size: 100% 2.15rem, 2.15rem 100%, 100% 100%;
+  }
+
+  .founder-note-modal-sheet {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #f4f2ee;
+    background-image:
+      linear-gradient(rgba(58, 48, 36, 0.016) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58, 48, 36, 0.012) 1px, transparent 1px),
+      radial-gradient(ellipse 140% 85% at 12% 8%, rgba(112, 92, 68, 0.035), transparent 52%),
+      radial-gradient(ellipse 110% 90% at 92% 88%, rgba(98, 82, 58, 0.028), transparent 48%),
+      radial-gradient(circle at 48% 42%, rgba(255, 252, 245, 0.25), transparent 55%);
+    background-size: 100% 2.12rem, 2.12rem 100%, 100% 100%, 100% 100%, 100% 100%;
+  }
+
+  .founder-note-modal-sheet::-webkit-scrollbar {
+    display: none;
+  }
+
+  .founder-note-modal-sheet::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    border-radius: inherit;
+    background-image:
+      radial-gradient(circle, rgba(48, 38, 26, 0.055) 0 1px, transparent 1.3px),
+      linear-gradient(
+        165deg,
+        rgba(62, 52, 40, 0.04) 0%,
+        transparent 36%,
+        transparent 62%,
+        rgba(72, 58, 42, 0.032) 100%
+      );
+    background-size: 1.05rem 1.05rem, 100% 100%;
+    mix-blend-mode: multiply;
+    opacity: 0.72;
+  }
+
+  .founder-note-modal-sheet::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    border-radius: inherit;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 252, 0.22),
+      inset 0 0 100px rgba(42, 34, 22, 0.05);
+  }
+
+  .hero-reveal {
+    animation: editorial-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-reveal-delay {
+    animation: editorial-rise 900ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-editorial hover:after:scale-x-100 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-current;
+  }
+
+  .hero-atmosphere {
+    background-color: #f7f7f7;
+    background-image:
+      radial-gradient(ellipse 68% 58% at 84% 36%, rgba(228, 222, 208, 0.52), transparent 58%),
+      radial-gradient(ellipse 52% 42% at 72% 72%, rgba(218, 212, 198, 0.28), transparent 62%),
+      radial-gradient(circle at 14% 24%, rgba(255, 255, 255, 0.55), transparent 42%);
+  }
+
+  .contact-postcard-input,
+  .contact-postcard-textarea {
+    border-radius: 1px;
+    border: 1px solid rgba(17, 17, 17, 0.16);
+    background: rgba(255, 255, 255, 0.42);
+    box-shadow:
+      inset 0 2px 4px rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(17, 17, 17, 0.03);
+    padding: 0.65rem 0.75rem;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #111111;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-postcard-input::placeholder,
+  .contact-postcard-textarea::placeholder {
+    color: rgba(58, 58, 54, 0.45);
+  }
+
+  .contact-postcard-input:focus-visible,
+  .contact-postcard-textarea:focus-visible {
+    border-color: rgba(17, 17, 17, 0.42);
+    box-shadow:
+      inset 0 2px 4px rgba(255, 255, 255, 0.55),
+      0 0 0 1px rgba(17, 17, 17, 0.12);
+  }
+
+  .postcard-perf {
+    border-radius: 1px;
+    border: 1px dashed rgba(17, 17, 17, 0.18);
+  }
+
+  /* Circular postmark / stamp — Nuriek wordmark */
+  .postmark-stamp {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.85rem;
+    height: 6.85rem;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 35% 32%, rgba(255, 255, 253, 0.55), transparent 42%);
+    box-shadow:
+      0 2px 8px rgba(17, 17, 17, 0.08),
+      inset 0 0 0 1.5px rgba(17, 17, 17, 0.55),
+      inset 0 0 0 4px #f9f8f6,
+      inset 0 0 0 5px rgba(17, 17, 17, 0.12),
+      inset 0 5px 12px rgba(255, 255, 253, 0.45);
+  }
+
+  .postmark-stamp::before {
+    position: absolute;
+    inset: 9%;
+    z-index: 0;
+    content: "";
+    border-radius: 999px;
+    border: 1px dashed rgba(17, 17, 17, 0.2);
+    pointer-events: none;
+  }
+
+  .postmark-stamp-rings {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  .postmark-stamp-rings::before {
+    position: absolute;
+    inset: 18%;
+    content: "";
+    border-radius: 999px;
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    pointer-events: none;
+  }
+
+  .postmark-stamp-cancel {
+    position: absolute;
+    inset: -2px;
+    z-index: 0;
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0.11;
+    background:
+      repeating-linear-gradient(
+        -125deg,
+        transparent 0,
+        transparent 5px,
+        rgba(17, 17, 17, 0.55) 5px,
+        rgba(17, 17, 17, 0.55) 6px
+      ),
+      repeating-linear-gradient(
+        148deg,
+        transparent 0,
+        transparent 6px,
+        rgba(17, 17, 17, 0.45) 6px,
+        rgba(17, 17, 17, 0.45) 7px
+      );
+  }
+
+  .postmark-stamp-core {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    max-width: 78%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .postmark-stamp-star {
+    margin-bottom: 0.12rem;
+    font-size: 0.35rem;
+    line-height: 1;
+    color: rgba(17, 17, 17, 0.38);
+  }
+
+  .postmark-stamp-word {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1.1;
+  }
+
+  .postmark-stamp-rule {
+    margin-top: 0.28rem;
+    margin-bottom: 0.2rem;
+    width: 1.75rem;
+    height: 1px;
+    background: rgba(17, 17, 17, 0.22);
+  }
+
+  .postmark-stamp-tagline {
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.47rem;
+    letter-spacing: 0.12em;
+    color: rgba(17, 17, 17, 0.46);
+  }
+
+  .postmark-stamp-year {
+    margin-top: 0.35rem;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.44rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.4);
+  }
+}
+
+.notebook-spread,
+.idea-board,
+.letter-page {
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 30% 20%, rgba(17, 17, 17, 0.06), transparent 24rem),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.55), transparent 22rem);
+  background-size: 100% 2rem, 100% 100%, 100% 100%;
+}
+
+.notebook-spread::before,
+.idea-board::before,
+.letter-page::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(17, 17, 17, 0.035) 0 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.028) 1px, transparent 1px);
+  background-size: 0.85rem 0.85rem, 2rem 100%;
+  mix-blend-mode: multiply;
+}
+
+.notebook-spread {
+  border-radius: 1px;
+}
+
+/* Aged notebook — flatter field; spine only lightly modeled */
+.notebook-spread.notebook-aged {
+  border-color: #c9c3b8;
+  background-color: #e9e6df;
+  background-image:
+    linear-gradient(rgba(58, 48, 38, 0.022) 1px, transparent 1px),
+    radial-gradient(circle at 22% 22%, rgba(112, 92, 68, 0.032), transparent 20rem),
+    radial-gradient(circle at 82% 78%, rgba(88, 72, 52, 0.026), transparent 18rem);
+  background-size: 100% 2rem, 100% 100%, 100% 100%;
+}
+
+.notebook-spread.notebook-aged::before {
+  opacity: 0.38;
+  background-image:
+    radial-gradient(circle, rgba(48, 38, 26, 0.028) 0 1px, transparent 1.2px),
+    linear-gradient(90deg, rgba(58, 48, 38, 0.016) 1px, transparent 1px);
+  background-size: 0.92rem 0.92rem, 2rem 100%;
+}
+
+.notebook-spread.notebook-aged::after {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(42, 34, 26, 0.028), transparent 2.8rem),
+    linear-gradient(
+      90deg,
+      transparent 0 47.5%,
+      rgba(42, 34, 26, 0.032) 49.5%,
+      rgba(34, 28, 20, 0.055) 50%,
+      rgba(42, 34, 26, 0.03) 50.5%,
+      transparent 52.5%
+    );
+}
+
+.notebook-kept {
+  transform: perspective(1200px) rotateX(1.6deg);
+  transform-origin: center bottom;
+}
+
+.notebook-spread::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(17, 17, 17, 0.1), transparent 2.8rem),
+    linear-gradient(90deg, transparent 0 48%, rgba(17, 17, 17, 0.08) 49%, rgba(17, 17, 17, 0.16) 50%, rgba(17, 17, 17, 0.06) 51%, transparent 53%),
+    radial-gradient(circle at 18% 86%, rgba(17, 17, 17, 0.045), transparent 10rem),
+    radial-gradient(circle at 92% 18%, rgba(17, 17, 17, 0.04), transparent 11rem);
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 760px) {
+  .notebook-kept {
+    min-height: 76rem;
+    transform: none;
+  }
+
+  .notebook-kept::after,
+  .notebook-spine,
+  .notebook-fold {
+    display: none;
+  }
+
+  .notebook-left-page,
+  .notebook-right-page {
+    inset-inline: 0;
+    width: 100%;
+    height: 50%;
+  }
+
+  .notebook-left-page {
+    top: 0;
+    bottom: auto;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  }
+
+  .notebook-right-page {
+    top: 50%;
+    bottom: auto;
+  }
+
+  .notebook-left-page .hero-sticky-main {
+    right: 4%;
+    top: 5%;
+    left: auto;
+    width: 12.5rem;
+  }
+
+  .notebook-left-page .hero-sticky-aside {
+    right: 2%;
+    top: auto;
+    bottom: 38%;
+    left: auto;
+    width: 8.25rem;
+  }
+
+  .notebook-left-page .hero-message {
+    left: 10%;
+    top: 34%;
+    max-width: 19rem;
+  }
+}
+
+.sketch-node {
+  position: absolute;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1.2px solid rgba(17, 17, 17, 0.78);
+  border-radius: 999px;
+  background: rgba(247, 247, 244, 0.32);
+}
+
+.sketch-line {
+  position: absolute;
+  width: 1px;
+  background: rgba(17, 17, 17, 0.72);
+}
+
+.scribble {
+  border-top: 1.5px solid rgba(17, 17, 17, 0.64);
+  border-radius: 50%;
+}
+
+.scribble::before,
+.scribble::after {
+  position: absolute;
+  left: 0.15rem;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-top: 1.5px solid rgba(17, 17, 17, 0.58);
+  border-radius: 50%;
+}
+
+.scribble::before {
+  top: 0.35rem;
+  transform: rotate(3deg);
+}
+
+.scribble::after {
+  top: 0.72rem;
+  transform: rotate(-4deg);
+}
+
+.idea-board {
+  position: relative;
+  overflow: hidden;
+}
+
+.note-card {
+  background: rgba(247, 247, 244, 0.9);
+  box-shadow: 0 12px 22px rgba(17, 17, 17, 0.11);
+  padding: 1.2rem;
+}
+
+.letter-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.letter-page::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.22), transparent 18%) left / 42% 100% no-repeat,
+    radial-gradient(circle at 100% 0, rgba(0, 0, 0, 0.24), transparent 20rem);
+}
+
+/* Open notebook page — screenshot-style cream sheet + gutter shadow */
+.letter-open-journal {
+  background-color: #fdfcf0;
+  background-image:
+    linear-gradient(rgba(55, 50, 44, 0.034) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgba(48, 44, 38, 0.11) 0,
+      rgba(48, 44, 38, 0.05) 0.06rem,
+      rgba(42, 38, 34, 0.03) 1.15rem,
+      transparent 26%
+    ),
+    radial-gradient(circle at 94% 6%, rgba(255, 255, 253, 0.55), transparent 42%);
+  background-size:
+    100% 2.05rem,
+    100% 100%,
+    100% 100%;
+}
+
+.letter-open-journal::before {
+  opacity: 0.35;
+  background-image:
+    radial-gradient(circle, rgba(48, 44, 40, 0.04) 0 1px, transparent 1px),
+    linear-gradient(90deg, rgba(48, 44, 40, 0.018) 1px, transparent 1px);
+}
+
+.letter-open-journal::after {
+  background: linear-gradient(
+    90deg,
+    rgba(36, 33, 28, 0.12) 0%,
+    rgba(36, 33, 28, 0.04) 10%,
+    transparent 28%
+  );
+}
+
+.orbital-map {
+  background:
+    repeating-radial-gradient(circle at center, transparent 0 3.9rem, rgba(17, 17, 17, 0.1) 3.9rem 4rem),
+    radial-gradient(circle at center, transparent 0 1rem, rgba(17, 17, 17, 0.08) 1rem 1.06rem, transparent 1.06rem);
+  border-radius: 999px;
+}
+
+.today-card {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 30% 16%, rgba(17, 17, 17, 0.06), transparent 13rem),
+    radial-gradient(circle at 85% 95%, rgba(255, 255, 255, 0.68), transparent 16rem);
+  background-size: 100% 2rem, 100% 100%, 100% 100%;
+}
+
+.today-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.today-card::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background-image: radial-gradient(circle, rgba(17, 17, 17, 0.045) 0 1px, transparent 1px);
+  background-size: 0.95rem 0.95rem;
+  mix-blend-mode: multiply;
+}
+
+.today-orbit {
+  position: relative;
+  border-radius: 999px;
+  background:
+    repeating-radial-gradient(circle at center, transparent 0 1.7rem, rgba(17, 17, 17, 0.1) 1.7rem 1.76rem),
+    linear-gradient(rgba(17, 17, 17, 0.1), rgba(17, 17, 17, 0.1)) center / 100% 1px no-repeat,
+    linear-gradient(90deg, rgba(17, 17, 17, 0.1), rgba(17, 17, 17, 0.1)) center / 1px 100% no-repeat;
+}
+
+@keyframes editorial-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
