@@ -17,6 +17,7 @@ export default {
       },
       maxWidth: {
         editorial: '84rem',
+        hero: '90rem',
         measure: '42rem',
       },
       transitionTimingFunction: {

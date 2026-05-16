@@ -16,7 +16,7 @@ export function NotebookSpread() {
         position: 'relative',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        maxWidth: '72rem',
+        maxWidth: '90rem',
         margin: '0 auto',
         minHeight: '29rem',
         alignItems: 'stretch',

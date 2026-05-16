@@ -1,11 +1,11 @@
 export function LessonSection() {
   return (
     <section id="context" className="bg-paper border-y border-line">
-      <div className="mx-auto grid max-w-[72rem] gap-9 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.02fr] lg:items-center lg:gap-11 lg:py-12">
+      <div className="mx-auto grid w-full max-w-hero gap-9 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.02fr] lg:items-center lg:gap-11 lg:py-12">
 
         {/* ── Cork / pinboard collage ── */}
         <div
-          className="idea-board relative mx-auto w-full max-w-[32rem] rounded-[3px_7px_4px_5px] border border-line shadow-[0_14px_40px_rgba(17,17,17,0.08)] sm:mx-0 sm:max-w-[min(100%,38rem)] lg:justify-self-start"
+          className="idea-board relative mx-auto w-full max-w-[40rem] rounded-[3px_7px_4px_5px] border border-line shadow-[0_14px_40px_rgba(17,17,17,0.08)] sm:mx-0 sm:max-w-[min(100%,48rem)] lg:justify-self-start"
           style={{
             background: "#dedad3",
             /* fixed aspect ratio so absolute-positioned notes never overflow */
@@ -328,7 +328,7 @@ export function LessonSection() {
         {/* ── end pinboard ── */}
 
         {/* ── Text column ── */}
-        <div className="max-w-[32rem] lg:max-w-[34.5rem] lg:justify-self-end">
+        <div className="max-w-[40rem] lg:max-w-[43rem] lg:justify-self-end">
           <p className="eyebrow mb-5 text-graphite lg:mb-6">What we learned</p>
           <h2 className="font-serif text-[clamp(2.1rem,3.1vw,3.1rem)] leading-[1.04] tracking-[-0.02em] text-ink">
             Ideas are easy.
