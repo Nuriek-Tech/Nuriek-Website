@@ -1,4 +1,4 @@
-# Nuriek
+# Nuriek Website
 
 Editorial web foundation for Nuriek.
 
@@ -16,4 +16,12 @@ nuriek/
 │   │   └── styles/
 │   └── ...
 └── server/
+```
+
+## Development
+
+```bash
+cd client
+npm install
+npm run dev
 ```
