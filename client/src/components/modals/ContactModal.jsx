@@ -71,20 +71,21 @@ export function ContactModal({ open, onClose }) {
 
   const modal = (
     <div
-      className="fixed inset-0 z-[105] flex items-start justify-center p-4 pb-10 pt-10 sm:p-6 sm:pb-12 sm:pt-12"
+      className="fixed inset-0 z-[105] overflow-y-auto overscroll-contain"
       role="presentation"
     >
       <button
         type="button"
-        className="absolute inset-0 bg-ink/38 motion-safe:transition-opacity motion-safe:duration-300"
+        className="fixed inset-0 bg-ink/38 motion-safe:transition-opacity motion-safe:duration-300"
         aria-label="Close contact form"
         onClick={onClose}
       />
+      <div className="relative z-[1] flex min-h-full justify-center p-4 py-6 sm:p-6 sm:py-10">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="paper-texture contact-postcard relative z-[1] w-full max-w-[min(100%,26rem)] overflow-hidden rounded-[2px] border border-ink/20 bg-[#faf9f6] shadow-[inset_0_0_0_1px_rgba(247,247,244,0.85),0_26px_70px_rgba(17,17,17,0.16)] motion-safe:animate-[editorial-rise_480ms_ease-editorial_both] sm:max-w-[min(100%,41rem)]"
+        className="paper-texture contact-postcard my-auto w-full max-h-[calc(100dvh-3rem)] max-w-[min(100%,26rem)] overflow-x-hidden overflow-y-auto rounded-[2px] border border-ink/20 bg-[#faf9f6] shadow-[inset_0_0_0_1px_rgba(247,247,244,0.85),0_26px_70px_rgba(17,17,17,0.16)] motion-safe:animate-[editorial-rise_480ms_ease-editorial_both] sm:max-h-[calc(100dvh-4rem)] sm:max-w-[min(100%,41rem)]"
       >
         <button
           ref={closeRef}
@@ -182,12 +183,12 @@ export function ContactModal({ open, onClose }) {
                   id={messageId}
                   name="message"
                   required
-                  rows={6}
+                  rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   aria-invalid={messageErr}
                   aria-describedby={messageErr ? `${messageId}-err` : undefined}
-                  className="contact-postcard-input contact-postcard-textarea min-h-[8.5rem] w-full resize-y"
+                  className="contact-postcard-input contact-postcard-textarea min-h-[6.5rem] w-full resize-y sm:min-h-[8.5rem]"
                   placeholder="Your lines here…"
                 />
                 {messageErr ? (
@@ -210,12 +211,12 @@ export function ContactModal({ open, onClose }) {
           </div>
 
           <aside
-            className="flex flex-col gap-7 bg-[#f3f2ed]/85 p-6 sm:p-7 md:min-h-[26rem]"
+            className="flex flex-col gap-5 bg-[#f3f2ed]/85 p-5 sm:gap-7 sm:p-7 md:min-h-[26rem]"
             aria-label="Delivery address"
           >
             <div className="flex justify-end md:block">
               <div
-                className="postmark-stamp rotate-[-2.5deg] sm:rotate-[-3deg]"
+                className="postmark-stamp scale-[0.88] rotate-[-2.5deg] sm:scale-100 sm:rotate-[-3deg]"
                 aria-hidden
               >
                 <span className="postmark-stamp-cancel" />
@@ -252,6 +253,7 @@ export function ContactModal({ open, onClose }) {
             </div>
           </aside>
         </div>
+      </div>
       </div>
     </div>
   );

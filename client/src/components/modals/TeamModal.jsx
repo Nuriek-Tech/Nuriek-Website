@@ -1,10 +1,11 @@
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLockBodyScroll } from '../../lib/useLockBodyScroll.js';
 
 export function TeamModal({ open, onClose }) {
   const titleId = useId();
   const closeRef = useRef(null);
+  const [missingImages, setMissingImages] = useState({});
 
   const team = [
     {
@@ -18,6 +19,12 @@ export function TeamModal({ open, onClose }) {
       role: 'Co-Founder',
       image: '/team-sherin.png',
       bio: 'An operations authority with over 20 years of global expertise. Specialises in architecting resilient, scalable frameworks that turn ambitious visions into reliable, human-centric operational realities.',
+    },
+    {
+      name: 'Rekha Singh',
+      role: 'People & Culture Lead',
+      image: '/team-rekha.png',
+      bio: 'Bringing over 12 years of experience in people operations and organizational development, Rekha focuses on building thoughtful, high-performing teams rooted in trust, empathy, and collaboration. Her work spans talent strategy, employee engagement, and cultivating environments where individuals can grow with purpose. At Nuriek, she helps shape the human foundation behind the company’s long-term vision.',
     },
     {
       name: 'Arun',
@@ -83,15 +90,32 @@ export function TeamModal({ open, onClose }) {
 
         {/* scrollable body */}
         <div className="overflow-y-auto overscroll-contain px-6 py-8 sm:px-8 sm:py-10">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
             {team.map((person) => (
               <div key={person.name} className="group relative flex flex-col">
                 <div className="relative w-full overflow-hidden border border-line bg-[#f0eee9]">
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    className="h-[22rem] w-full object-cover object-top transition-all duration-500 filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:contrast-100 sm:h-[24rem]"
-                  />
+                  {missingImages[person.name] ? (
+                    <div
+                      className="flex h-[22rem] w-full items-center justify-center sm:h-[24rem]"
+                      aria-hidden
+                    >
+                      <span className="font-serif text-[2.5rem] tracking-tight text-ink/15">
+                        {person.name
+                          .split(' ')
+                          .map((part) => part[0])
+                          .join('')}
+                      </span>
+                    </div>
+                  ) : (
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      onError={() =>
+                        setMissingImages((prev) => ({ ...prev, [person.name]: true }))
+                      }
+                      className="h-[22rem] w-full object-cover object-top transition-all duration-500 filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:contrast-100 sm:h-[24rem]"
+                    />
+                  )}
                   <div className="absolute inset-0 pointer-events-none border border-ink/5" />
                 </div>
 
