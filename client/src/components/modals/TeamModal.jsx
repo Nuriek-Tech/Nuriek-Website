@@ -7,7 +7,7 @@ export function TeamModal({ open, onClose }) {
   const closeRef = useRef(null);
   const [missingImages, setMissingImages] = useState({});
 
-  const team = [
+  const founders = [
     {
       name: 'Priya Arun',
       role: 'Co-Founder & MD',
@@ -21,18 +21,63 @@ export function TeamModal({ open, onClose }) {
       bio: 'An operations authority with over 20 years of global expertise. Specialises in architecting resilient, scalable frameworks that turn ambitious visions into reliable, human-centric operational realities.',
     },
     {
-      name: 'Rekha Singh',
-      role: 'People & Culture Lead',
-      image: '/team-rekha.png',
-      bio: 'Bringing over 12 years of experience in people operations and organizational development, Rekha focuses on building thoughtful, high-performing teams rooted in trust, empathy, and collaboration. Her work spans talent strategy, employee engagement, and cultivating environments where individuals can grow with purpose. At Nuriek, she helps shape the human foundation behind the company’s long-term vision.',
-    },
-    {
       name: 'Arun',
       role: 'Founder',
       image: '/team-arun.png',
       bio: 'Passionate about foundational technology, adaptive intelligence, and long-term memory systems. Driven by the core belief that tools must adapt gracefully to real human context.',
     },
   ];
+
+  const rekha = {
+    name: 'Rekha Singh',
+    role: 'People & Culture Lead',
+    image: '/team-rekha.png',
+    bio: 'Bringing over 12 years of experience in people operations and organizational development, Rekha focuses on building thoughtful, high-performing teams rooted in trust, empathy, and collaboration. Her work spans talent strategy, employee engagement, and cultivating environments where individuals can grow with purpose. At Nuriek, she helps shape the human foundation behind the company’s long-term vision.',
+  };
+
+  function TeamMemberCard({ person }) {
+    return (
+      <div className="group relative flex flex-col">
+        <div className="relative w-full overflow-hidden border border-line bg-[#f0eee9]">
+          {missingImages[person.name] ? (
+            <div
+              className="flex h-[22rem] w-full items-center justify-center sm:h-[24rem]"
+              aria-hidden
+            >
+              <span className="font-serif text-[2.5rem] tracking-tight text-ink/15">
+                {person.name
+                  .split(' ')
+                  .map((part) => part[0])
+                  .join('')}
+              </span>
+            </div>
+          ) : (
+            <img
+              src={person.image}
+              alt={person.name}
+              onError={() =>
+                setMissingImages((prev) => ({ ...prev, [person.name]: true }))
+              }
+              className="h-[22rem] w-full object-cover object-top transition-all duration-500 filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:contrast-100 sm:h-[24rem]"
+            />
+          )}
+          <div className="absolute inset-0 pointer-events-none border border-ink/5" />
+        </div>
+
+        <div className="mt-5 flex flex-col">
+          <h3 className="font-serif text-[1.3rem] font-medium leading-snug text-ink">
+            {person.name}
+          </h3>
+          <p className="mt-1 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-graphite">
+            {person.role}
+          </p>
+          <p className="mt-3.5 font-mono text-[0.82rem] leading-relaxed text-graphite">
+            {person.bio}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   useLockBodyScroll(open);
 
@@ -90,49 +135,18 @@ export function TeamModal({ open, onClose }) {
 
         {/* scrollable body */}
         <div className="overflow-y-auto overscroll-contain px-6 py-8 sm:px-8 sm:py-10">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-            {team.map((person) => (
-              <div key={person.name} className="group relative flex flex-col">
-                <div className="relative w-full overflow-hidden border border-line bg-[#f0eee9]">
-                  {missingImages[person.name] ? (
-                    <div
-                      className="flex h-[22rem] w-full items-center justify-center sm:h-[24rem]"
-                      aria-hidden
-                    >
-                      <span className="font-serif text-[2.5rem] tracking-tight text-ink/15">
-                        {person.name
-                          .split(' ')
-                          .map((part) => part[0])
-                          .join('')}
-                      </span>
-                    </div>
-                  ) : (
-                    <img
-                      src={person.image}
-                      alt={person.name}
-                      onError={() =>
-                        setMissingImages((prev) => ({ ...prev, [person.name]: true }))
-                      }
-                      className="h-[22rem] w-full object-cover object-top transition-all duration-500 filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:contrast-100 sm:h-[24rem]"
-                    />
-                  )}
-                  <div className="absolute inset-0 pointer-events-none border border-ink/5" />
-                </div>
-
-                <div className="mt-5 flex flex-col">
-                  <h3 className="font-serif text-[1.3rem] font-medium leading-snug text-ink">
-                    {person.name}
-                  </h3>
-                  <p className="mt-1 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-graphite">
-                    {person.role}
-                  </p>
-                  <p className="mt-3.5 font-mono text-[0.82rem] leading-relaxed text-graphite">
-                    {person.bio}
-                  </p>
-                </div>
-              </div>
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {founders.map((person) => (
+              <TeamMemberCard key={person.name} person={person} />
             ))}
           </div>
+
+          <div className="mt-12 flex justify-center border-t border-line/70 pt-12 sm:mt-14 sm:pt-14">
+            <div className="w-full max-w-[20rem] sm:max-w-[22rem]">
+              <TeamMemberCard person={rekha} />
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
