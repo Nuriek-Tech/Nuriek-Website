@@ -11,35 +11,14 @@ export function NotebookSpread() {
   const { openModal } = useFounderNoteModal();
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        maxWidth: '90rem',
-        margin: '0 auto',
-        minHeight: '29rem',
-        alignItems: 'stretch',
-      }}
-    >
+    <div className="notebook-spread">
 
       {/* ════════════════════════════════════
           LEFT PAGE
           Transparent — inherits section bg
           Feels like the left book page
       ════════════════════════════════════ */}
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: 'clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3.5rem)',
-          paddingRight: 'clamp(2rem,4vw,3rem)',
-          background: 'transparent',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
+      <div className="notebook-spread-left">
         <p
           style={{
             fontFamily: 'Inter, sans-serif',
@@ -82,7 +61,7 @@ export function NotebookSpread() {
             lineHeight: 1.85,
             color: 'rgba(17,17,17,0.58)',
             margin: '0 0 2.4rem',
-            maxWidth: '19rem',
+            maxWidth: 'min(100%, 19rem)',
           }}
         >
           Years of curiosity, experiments, failures,
@@ -140,28 +119,7 @@ export function NotebookSpread() {
           RIGHT PAGE — The Notebook
           This is the distinct physical object
       ════════════════════════════════════ */}
-      <div
-        style={{
-          position: 'relative',
-          background: '#f4f2ec',
-          overflow: 'hidden',
-          padding: 'clamp(1.8rem,3.5vw,2.8rem)',
-          /*
-           * This shadow IS the open-book shape:
-           * - left side: spine crease (inward shadow)
-           * - rest: page lifting off the surface
-           */
-          boxShadow: `
-            inset 8px 0 18px -6px rgba(17,17,17,0.12),
-            -2px 0 0 rgba(17,17,17,0.06),
-            4px 12px 40px rgba(17,17,17,0.13),
-            0 2px 6px rgba(17,17,17,0.08)
-          `,
-          borderTop: '1px solid rgba(17,17,17,0.07)',
-          borderRight: '1px solid rgba(17,17,17,0.07)',
-          borderBottom: '1px solid rgba(17,17,17,0.07)',
-        }}
-      >
+      <div className="notebook-spread-right">
 
         {/* Ruled lines */}
         <div
@@ -283,6 +241,7 @@ export function NotebookSpread() {
 
         <div
           aria-hidden
+          className="notebook-scribble-mobile-hide"
           style={{
             position: 'absolute',
             top: '52%',
@@ -319,6 +278,7 @@ export function NotebookSpread() {
 
         <div
           aria-hidden
+          className="notebook-scribble-mobile-hide"
           style={{
             position: 'absolute',
             top: '38%',
@@ -334,6 +294,7 @@ export function NotebookSpread() {
 
         <div
           aria-hidden
+          className="notebook-scribble-mobile-hide"
           style={{
             position: 'absolute',
             bottom: '14%',
@@ -350,7 +311,7 @@ export function NotebookSpread() {
         </div>
 
         {/* ── NODE SKETCH ── */}
-        <div style={{ position: 'absolute', left: 'clamp(3.5rem,9%,4.5rem)', top: '20%', zIndex: 3 }}>
+        <div className="notebook-node-wrap" style={{ position: 'absolute', left: 'clamp(2rem,6%,4.5rem)', top: '18%', zIndex: 3 }}>
           <svg width="90" height="132" viewBox="0 0 90 132" fill="none" aria-hidden>
             <line x1="45" y1="13" x2="45" y2="34" stroke="#2a2418" strokeWidth="0.9" strokeLinecap="round"/>
             <line x1="45" y1="47" x2="20" y2="68" stroke="#2a2418" strokeWidth="0.9" strokeLinecap="round"/>
@@ -390,6 +351,7 @@ export function NotebookSpread() {
 
         <svg
           aria-hidden
+          className="notebook-scribble-mobile-hide"
           style={{
             position: 'absolute',
             left: 'clamp(5.5rem,12%,6.5rem)',
@@ -414,7 +376,7 @@ export function NotebookSpread() {
         </svg>
 
         {/* ── ARROW + STAMP ── */}
-        <div style={{
+        <div className="notebook-scribble-mobile-hide" style={{
           position: 'absolute',
           left: '40%',
           top: '44%',

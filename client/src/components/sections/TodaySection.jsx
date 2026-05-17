@@ -1,15 +1,15 @@
 export function TodaySection() {
   return (
     <section id="today" className="relative overflow-hidden border-t border-line bg-paper">
-      <div className="mx-auto grid max-w-[86rem] gap-16 px-5 py-20 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-24">
+      <div className="mx-auto grid w-full max-w-[86rem] gap-12 px-5 py-16 sm:gap-16 sm:px-8 sm:py-20 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-24">
         <div>
           <p className="eyebrow mb-7 text-graphite">Today</p>
-          <h2 className="max-w-[37rem] font-serif text-[clamp(3rem,4.6vw,4.9rem)] leading-[0.98] tracking-normal">
+          <h2 className="max-w-[37rem] font-serif text-[clamp(2.25rem,6vw,4.9rem)] leading-[0.98] tracking-normal">
             The ideas finally became systems.
           </h2>
           <div className="mt-8 h-px w-12 bg-ink" />
-          <p className="mt-9 max-w-[35rem] font-serif text-[clamp(1.3rem,1.65vw,1.75rem)] leading-[1.45] text-ink">
-            After years of exploration, reflection, and iteration - we're
+          <p className="mt-9 max-w-[35rem] font-serif text-[clamp(1.15rem,2.5vw,1.75rem)] leading-[1.45] text-ink">
+            After years of exploration, reflection, and iteration - we&apos;re
             building products that grow with people.
           </p>
           <p className="mt-7 max-w-[34rem] font-mono text-[0.82rem] leading-7 text-graphite">
@@ -33,24 +33,24 @@ export function TodaySection() {
           </div>
         </div>
 
-        <div className="relative min-h-[40rem] lg:min-h-[41rem]">
-          <div className="absolute left-0 top-8 hidden w-[14rem] rotate-[-3deg] border border-ink/8 bg-paper/80 p-5 shadow-[0_14px_28px_rgba(17,17,17,0.08)] lg:block">
+        <div className="flex flex-col gap-8 lg:relative lg:min-h-[41rem]">
+          <div className="w-full max-w-[14rem] rotate-[-2deg] border border-ink/8 bg-paper/80 p-5 shadow-[0_14px_28px_rgba(17,17,17,0.08)] lg:absolute lg:left-0 lg:top-8 lg:rotate-[-3deg]">
             <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-graphite">
               What we build
             </p>
-            <p className="mt-4 handwritten text-[1.35rem] leading-7">
+            <p className="mt-4 handwritten text-[1.25rem] leading-7 sm:text-[1.35rem]">
               Products that keep learning after launch.
             </p>
           </div>
 
-          <div className="today-card absolute right-0 top-0 w-full max-w-[34rem] rounded-[1.35rem] border border-line bg-[#f1efe7] px-8 py-8 shadow-[0_28px_80px_rgba(17,17,17,0.13)] sm:px-10 lg:right-0">
+          <div className="today-card relative w-full max-w-[34rem] rounded-[1.35rem] border border-line bg-[#f1efe7] px-6 py-7 shadow-[0_28px_80px_rgba(17,17,17,0.13)] sm:px-8 sm:py-8 lg:absolute lg:right-0 lg:top-0">
             <div className="max-w-[24rem] border border-ink/8 bg-paper/72 p-5 shadow-[0_12px_22px_rgba(17,17,17,0.08)]">
-              <p className="handwritten text-[1.45rem] leading-8 text-ink/82">
+              <p className="handwritten text-[1.3rem] leading-8 text-ink/82 sm:text-[1.45rem]">
                 Built from a belief that education should evolve with every
                 learner.
               </p>
             </div>
-            <div className="today-orbit mx-auto mt-8 h-24 w-24" aria-hidden="true">
+            <div className="today-orbit relative mx-auto mt-8 h-24 w-24" aria-hidden="true">
               <span className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink" />
             </div>
             <div className="mt-7 h-px w-12 bg-ink/35" />
@@ -60,7 +60,7 @@ export function TodaySection() {
             <p className="mt-4 max-w-[18rem] font-mono text-[0.9rem] leading-7 text-ink">
               Adaptive AI learning for students.
             </p>
-            <div className="mt-7 grid gap-3 border-y border-line/80 py-5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-graphite sm:grid-cols-4">
+            <div className="mt-7 grid gap-3 border-y border-line/80 py-5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-graphite sm:grid-cols-2 lg:grid-cols-4">
               <p>Personal pace</p>
               <p>Context memory</p>
               <p>Adaptive practice</p>
