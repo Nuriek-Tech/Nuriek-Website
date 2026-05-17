@@ -7,10 +7,12 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1] / "public"
 FONT_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
     "/System/Library/Fonts/Supplemental/Georgia.ttf",
-    "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+    "/Library/Fonts/Georgia Bold.ttf",
     "/Library/Fonts/Georgia.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
+    "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf",
 ]
 
 
@@ -24,7 +26,7 @@ def load_font(size: int) -> ImageFont.FreeTypeFont:
 def draw_icon(size: int, fill: tuple[int, int, int, int]) -> Image.Image:
     img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    font_size = max(22, int(size * 0.72))
+    font_size = max(24, int(size * 0.78))
     font = load_font(font_size)
     text = "n"
     bbox = draw.textbbox((0, 0), text, font=font)
