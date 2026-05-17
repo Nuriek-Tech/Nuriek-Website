@@ -33,17 +33,8 @@ export function TodaySection() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 lg:relative lg:min-h-[41rem]">
-          <div className="w-full max-w-[14rem] rotate-[-2deg] border border-ink/8 bg-paper/80 p-5 shadow-[0_14px_28px_rgba(17,17,17,0.08)] lg:absolute lg:left-0 lg:top-8 lg:rotate-[-3deg]">
-            <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-graphite">
-              What we build
-            </p>
-            <p className="mt-4 handwritten text-[1.25rem] leading-7 sm:text-[1.35rem]">
-              Products that keep learning after launch.
-            </p>
-          </div>
-
-          <div className="today-card relative w-full max-w-[34rem] rounded-[1.35rem] border border-line bg-[#f1efe7] px-6 py-7 shadow-[0_28px_80px_rgba(17,17,17,0.13)] sm:px-8 sm:py-8 lg:absolute lg:right-0 lg:top-0">
+        <div className="lg:relative lg:min-h-[41rem]">
+          <div className="today-card relative w-full max-w-[34rem] rounded-[1.35rem] border border-line bg-[#f1efe7] px-6 py-7 shadow-[0_28px_80px_rgba(17,17,17,0.13)] sm:px-8 sm:py-8 lg:ml-auto">
             <div className="max-w-[24rem] border border-ink/8 bg-paper/72 p-5 shadow-[0_12px_22px_rgba(17,17,17,0.08)]">
               <p className="handwritten text-[1.3rem] leading-8 text-ink/82 sm:text-[1.45rem]">
                 Built from a belief that education should evolve with every

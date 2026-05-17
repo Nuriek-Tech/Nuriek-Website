@@ -40,7 +40,7 @@ export function FounderNoteModal({ open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="founder-note-modal-sheet relative z-[1] w-full max-w-[min(42rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#c9c2b4] shadow-[0_28px_90px_rgba(17,17,17,0.22)] motion-safe:animate-[editorial-rise_520ms_ease-editorial_both]"
+        className="founder-note-modal-sheet relative z-[1] w-full max-w-[min(42rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#ddd6cb] shadow-[0_28px_90px_rgba(17,17,17,0.22)] motion-safe:animate-[editorial-rise_520ms_ease-editorial_both]"
       >
         {/* Close button */}
         <button
@@ -66,7 +66,7 @@ export function FounderNoteModal({ open, onClose }) {
           {/* Handwritten headline */}
           <h2
             id={titleId}
-            className="handwritten text-[clamp(1.35rem,2.6vw,1.9rem)] leading-[1.35] text-ink"
+            className="handwritten text-[clamp(1.35rem,2.6vw,1.9rem)] leading-[1.35] text-[#1e1b16]"
           >
             For years, I thought I was building ideas.<br />
             In reality, I was trying to understand people.
@@ -91,18 +91,9 @@ export function FounderNoteModal({ open, onClose }) {
             </p>
           </div>
 
-          {/* Signature — constrained within page */}
-          <div className="mt-6 max-w-[10rem] overflow-hidden">
-            <img
-              src="/arun-signature.png"
-              alt="Arun's signature"
-              className="h-12 w-auto max-w-full sm:h-14"
-              style={{
-                mixBlendMode: 'multiply',
-                opacity: 0.82,
-              }}
-            />
-          </div>
+          <p className="founder-signature mt-6" aria-label="Signed, Arun">
+            Arun
+          </p>
 
         </div>
       </div>
