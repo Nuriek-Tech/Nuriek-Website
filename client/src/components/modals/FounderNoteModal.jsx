@@ -40,7 +40,7 @@ export function FounderNoteModal({ open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="founder-note-modal-sheet relative z-[1] w-full max-w-[min(42rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#ddd6cb] shadow-[0_28px_90px_rgba(17,17,17,0.22)] motion-safe:animate-[editorial-rise_520ms_ease-editorial_both]"
+        className="founder-note-modal-sheet relative z-[1] w-full max-w-[min(42rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-line shadow-[0_28px_90px_rgba(17,17,17,0.22)] motion-safe:animate-[editorial-rise_520ms_ease-editorial_both]"
       >
         {/* Close button */}
         <button
