@@ -85,29 +85,29 @@ export function ContactModal({ open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="paper-texture contact-postcard my-auto w-full max-h-[calc(100dvh-3rem)] max-w-[min(100%,26rem)] overflow-x-hidden overflow-y-auto rounded-[2px] border border-ink/20 bg-[#faf9f6] shadow-[inset_0_0_0_1px_rgba(247,247,244,0.85),0_26px_70px_rgba(17,17,17,0.16)] motion-safe:animate-[editorial-rise_480ms_ease-editorial_both] sm:max-h-[calc(100dvh-4rem)] sm:max-w-[min(100%,41rem)]"
+        className="paper-texture contact-postcard relative my-auto flex w-full max-h-[calc(100dvh-3rem)] max-w-[min(100%,26rem)] flex-col overflow-hidden rounded-[2px] border border-ink/20 bg-[#faf9f6] shadow-[inset_0_0_0_1px_rgba(247,247,244,0.85),0_26px_70px_rgba(17,17,17,0.16)] motion-safe:animate-[editorial-rise_480ms_ease-editorial_both] sm:max-h-[calc(100dvh-4rem)] sm:max-w-[min(100%,41rem)]"
       >
-        <button
-          ref={closeRef}
-          type="button"
-          className="absolute right-2 top-2 z-[2] flex h-10 w-10 items-center justify-center rounded-sm text-graphite transition-colors hover:bg-ink/[0.06] hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink sm:right-3 sm:top-3"
-          aria-label="Close"
-          onClick={onClose}
-        >
-          <span className="text-xl font-light leading-none" aria-hidden>
-            ×
-          </span>
-        </button>
-
-        <div className="flex items-end justify-between border-b border-ink/10 px-5 pb-3 pt-10 sm:px-7 sm:pb-3.5 sm:pt-11">
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-ink/10 bg-[#faf9f6] px-5 py-4 sm:px-7 sm:py-5">
           <h2
             id={titleId}
-            className="font-serif text-[1.4rem] leading-tight tracking-[-0.02em] text-ink sm:text-[1.5rem]"
+            className="min-w-0 flex-1 font-serif text-[1.4rem] leading-tight tracking-[-0.02em] text-ink sm:text-[1.5rem]"
           >
             Contact Nuriek
           </h2>
+          <button
+            ref={closeRef}
+            type="button"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm text-graphite transition-colors hover:bg-ink/[0.06] hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            aria-label="Close"
+            onClick={onClose}
+          >
+            <span className="text-xl font-light leading-none" aria-hidden>
+              ×
+            </span>
+          </button>
         </div>
 
+        <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain">
         <div className="grid md:grid-cols-[1fr_minmax(9.25rem,10.75rem)]">
           <div className="border-b border-dashed border-ink/15 p-5 sm:p-7 md:border-b-0 md:border-r md:pb-8">
             <p className="font-serif text-[1.2rem] italic leading-snug text-ink/90 sm:text-[1.3rem]">
@@ -252,6 +252,7 @@ export function ContactModal({ open, onClose }) {
               </div>
             </div>
           </aside>
+        </div>
         </div>
       </div>
       </div>
