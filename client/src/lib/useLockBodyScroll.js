@@ -5,7 +5,8 @@ import { useEffect } from 'react';
  *
  * Uses `position: fixed` instead of `overflow: hidden` — this keeps the
  * scrollbar visible so the page width never changes, eliminating the shake.
- * Restores the exact scroll position when the modal closes.
+ * Restores the exact scroll position instantly when the modal closes
+ * (avoids animating via html { scroll-behavior: smooth }).
  */
 export function useLockBodyScroll(active) {
   useEffect(() => {
@@ -13,13 +14,14 @@ export function useLockBodyScroll(active) {
 
     const scrollY = window.scrollY;
     const body = document.body;
+    const html = document.documentElement;
 
     body.style.position = 'fixed';
     body.style.top = `-${scrollY}px`;
     body.style.left = '0';
     body.style.right = '0';
     body.style.width = '100%';
-    body.style.overflowY = 'scroll'; // keep scrollbar visible — no layout shift
+    body.style.overflowY = 'scroll';
 
     return () => {
       body.style.position = '';
@@ -28,7 +30,16 @@ export function useLockBodyScroll(active) {
       body.style.right = '';
       body.style.width = '';
       body.style.overflowY = '';
-      window.scrollTo(0, scrollY); // restore exact scroll position
+
+      const previousScrollBehavior = html.style.scrollBehavior;
+
+      requestAnimationFrame(() => {
+        html.style.scrollBehavior = 'auto';
+        window.scrollTo(0, scrollY);
+        requestAnimationFrame(() => {
+          html.style.scrollBehavior = previousScrollBehavior;
+        });
+      });
     };
   }, [active]);
 }
