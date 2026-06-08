@@ -9,7 +9,7 @@ export function TeamModal({ open, onClose }) {
 
   const founders = [
     {
-      name: 'Priya Arun',
+      name: 'Mariyam Annie Priya',
       role: 'Co-Founder & MD',
       image: '/team-mariyam.png',
       bio: 'A marketing veteran with 15+ years of strategic leadership. Deeply focused on understanding human behaviour, crafting resonant narratives, and building authentic connections between people and platforms.',

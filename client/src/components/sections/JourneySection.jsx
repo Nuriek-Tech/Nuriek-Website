@@ -2,7 +2,7 @@ const milestones = [
   {
     year: '2018',
     title: 'The insight.',
-    text: 'People are not static. Systems are.',
+    text: 'Me and Sonu. Felt it before we could name it — people are not static. Systems are.',
   },
   {
     year: '2020',
@@ -17,7 +17,7 @@ const milestones = [
   {
     year: '2022',
     title: 'Explored many paths.',
-    text: 'More than fifty ideas and directions.',
+    text: 'Amal, Sonu, and me — chasing fifty ideas, none of them wasted.',
   },
   {
     year: '2023',
