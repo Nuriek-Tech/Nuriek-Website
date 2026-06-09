@@ -103,7 +103,23 @@ export function SiteHeader() {
                 <a
                   className="block px-1 py-2.5 font-mono text-sm lowercase tracking-normal text-ink"
                   href={item.href}
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeMenu();
+                    const target = document.querySelector(item.href);
+                    if (target) {
+                      // useLockBodyScroll cleanup uses two nested rAFs to restore scroll
+                      // position. We wait for both to complete before scrolling to the
+                      // new target, otherwise the restoration overrides our scroll.
+                      requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          window.history.pushState(null, '', item.href);
+                        });
+                      });
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
