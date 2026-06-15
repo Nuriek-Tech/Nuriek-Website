@@ -46,9 +46,9 @@ export function SiteHeader() {
             onClick={closeMenu}
           >
             <img
-              src="/nuriek-logo.svg"
+              src="/nuriek-logo.png?v=2"
               alt="Nuriek"
-              className="h-7 w-auto"
+              className="h-[30px] w-auto"
               draggable={false}
             />
           </a>
