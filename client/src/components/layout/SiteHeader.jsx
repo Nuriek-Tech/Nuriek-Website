@@ -41,11 +41,16 @@ export function SiteHeader() {
         <div className="grid h-[5rem] grid-cols-[1fr_auto_auto] items-center gap-3 sm:grid-cols-[1fr_auto_1fr] sm:gap-6">
           <a
             href="#top"
-            className="font-sans text-2xl font-semibold tracking-[-0.03em] text-ink"
+            className="flex items-center"
             aria-label="Nuriek home"
             onClick={closeMenu}
           >
-            nuriek
+            <img
+              src="/nuriek-logo.svg"
+              alt="Nuriek"
+              className="h-7 w-auto"
+              draggable={false}
+            />
           </a>
 
           <nav className="hidden sm:block sm:justify-self-center" aria-label="Primary navigation">
