@@ -11,8 +11,8 @@ export default {
         mist: '#ecece6',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', "'Playfair Display Fallback'", 'Georgia', 'serif'],
+        sans: ['Inter', "'Inter Fallback'", 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"Courier New"', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
