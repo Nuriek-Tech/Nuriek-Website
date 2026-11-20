@@ -9,6 +9,7 @@ import { LessonSection } from './components/sections/LessonSection.jsx';
 import { MissionSection } from './components/sections/MissionSection.jsx';
 import { OpeningStatement } from './components/sections/OpeningStatement.jsx';
 import { TodaySection } from './components/sections/TodaySection.jsx';
+import { ExploreNuriekSection } from './components/sections/ExploreNuriekSection.jsx';
 import { useSmoothScroll } from './lib/useSmoothScroll.js';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
               <FounderLetterSection />
               <MissionSection />
               <TodaySection />
+              <ExploreNuriekSection />
             </EditorialShell>
           </TeamModalProvider>
         </LegalModalProvider>

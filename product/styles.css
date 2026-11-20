@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Inter;
+  src: url("fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("fonts/inter-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/playfair-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f7f7f4;
+  --ink: #111;
+  --muted: #50504b;
+  --rule: #d6d6cf;
+  --serif: "Playfair Display", Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+p, h1, h2, figure, dl, dd { margin: 0; }
+a { color: inherit; text-underline-offset: .22em; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+:target { scroll-margin-top: 1.5rem; }
+.wrap { width: min(100% - 3rem, 76rem); margin-inline: auto; }
+.skip-link { position: absolute; top: .5rem; left: .75rem; transform: translateY(-200%); background: var(--paper); padding: .6rem; }
+.skip-link:focus { transform: translateY(0); }
+.site-header, .product-section { border-bottom: 1px solid var(--rule); }
+
+.masthead, .footer-layout {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+nav { display: flex; flex-wrap: wrap; gap: .65rem 1.6rem; }
+nav a { font-size: .875rem; text-decoration-color: transparent; }
+nav a:hover { text-decoration-color: currentColor; }
+.brand { text-decoration: none; }
+.wordmark { display: inline-block; font-size: 2.2rem; letter-spacing: -.07em; }
+.wordmark-i { position: relative; }
+.wordmark-i::before { content: ""; position: absolute; width: .12em; height: .12em; border-radius: 50%; background: currentColor; top: .08em; left: 50%; transform: translateX(-35%); }
+
+.introduction, .product-layout {
+  display: grid;
+  grid-template-columns: 1.14fr 1fr;
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+  padding-block: clamp(3.5rem, 9vw, 8rem);
+}
+
+.label { color: var(--muted); font-size: .875rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.045em; }
+h1 { margin-top: 1.1rem; font-size: clamp(3.7rem, 8.5vw, 8.4rem); line-height: .94; }
+h2 { margin-top: .8rem; font-size: clamp(3.25rem, 7vw, 6rem); line-height: 1; }
+.intro-copy, .product-intro { max-width: 34rem; margin-block: 1.6rem 1.8rem; font-size: clamp(1rem, 1.7vw, 1.25rem); line-height: 1.65; color: var(--muted); }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.9rem;
+  padding: .65rem 1.15rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { background: var(--paper); color: var(--ink); }
+.button:focus-visible { outline-color: var(--ink); }
+
+.notebook { padding: clamp(.8rem, 2.5vw, 1.7rem); border: 1px solid var(--rule); background: #eeeee9; }
+.notebook-page { padding: clamp(1.35rem, 4vw, 3.2rem); border: 1px solid var(--rule); background: var(--paper); }
+.student { margin-top: 1.6rem; font-family: var(--serif); font-size: clamp(1.65rem, 3.1vw, 2.65rem); line-height: 1.19; }
+.notebook-rule { width: 2.5rem; height: 1px; margin-block: 1.55rem; background: var(--ink); }
+.tutor, figcaption { color: var(--muted); line-height: 1.65; }
+figcaption { margin: .8rem .25rem 0; font-size: .875rem; }
+.product-section { border-top: 1px solid var(--rule); background: #eeeee9; }
+.features { border-block: 1px solid var(--rule); }
+.features div { padding: 1rem 0; }
+.features div + div { border-top: 1px solid var(--rule); }
+.features dt { margin-bottom: .35rem; font-size: 1.05rem; font-weight: 600; }
+.features dd { color: var(--muted); line-height: 1.55; }
+.site-footer { color: var(--muted); font-size: .875rem; }
+.footer-layout { padding-block: 1.4rem; }
+
+@media (max-width: 48rem) {
+  .introduction, .product-layout { grid-template-columns: minmax(0, 1fr); }
+  .notebook { max-width: 30rem; }
+}
+
+@media (max-width: 32rem) {
+  .wrap { width: calc(100% - 2rem); }
+  .masthead { padding-block: .65rem; gap: .7rem; }
+  .masthead nav { justify-content: flex-end; gap: .35rem .9rem; }
+  .footer-layout { align-items: flex-start; flex-direction: column; }
+}
